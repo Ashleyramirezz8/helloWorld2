@@ -1,0 +1,48 @@
+   /* External styles for the about-css page */
+
+   /* All paragraphs: readable size and spacing */
+   p {
+       font-size: 17px;
+       line-height: 1.6;
+       color: #333333;
+   }
+
+      /* All level two headers: Maryland red with an underline bar */
+   h2 {
+       color: #e21833;
+       border-bottom: 2px solid #e21833;
+       padding-bottom: 4px;
+   }
+
+       /* Tables: solid border in UMD red, with the double lines merged into one */
+   table, td, th {
+       border-style: solid;
+       border-width: 2px;
+       border-color: #e21833;
+       border-collapse: collapse;
+   }
+
+   /* Table cells: space around the text so it isn't cramped */
+   td, th {
+       padding: 8px 14px;
+   }
+
+      /* ID selector: only the paragraph with id="career-goal" */
+   p#career-goal {
+       background-color: #fff4d6;
+       border-left: 5px solid #ffd200;
+       padding: 10px 14px;
+   }
+
+      /* Class selector: used on the page title */
+   .page-title {
+       color: #000000;
+       font-size: 36px;
+       letter-spacing: 1px;
+   }
+
+      /* Logo size: only applies to img tags with class="logo" */
+   img.logo {
+       width: 300px;
+       height: 75px;
+   }
