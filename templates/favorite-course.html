@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block page_title %}
+Favorite Course
+{% endblock %}
+
+{% block page_head %}
+My Favorite Course
+{% endblock %}
+
+{% block page_content %}
+{# Only show the message when both GET parameters were passed in the URL #}
+{% if subject and course_number %}
+<p class="lead">You entered your favorite course as: {{ subject }} {{ course_number }}</p>
+{% else %}
+<p>No course was entered. Add it to the URL, for example: /favorite-course?subject=BMGT&amp;course_number=407</p>
+{% endif %}
+{% endblock %}
