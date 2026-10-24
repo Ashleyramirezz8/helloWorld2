@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+
+{% block page_title %}
+Contact
+{% endblock %}
+
+{% block page_head %}
+Contact Me
+{% endblock %}
+
+{% block page_content %}
+{% if form_submitted %}
+{# Form was submitted: thank the user and show what they entered #}
+<div class="row">
+    <div class="col-12">
+        <h2>Thank you for completing my form!</h2>
+    </div>
+    <div class="col-md-6">
+        <p>First Name:</p>
+    </div>
+    <div class="col-md-6">
+        <p>{{ request.form.get('first_name') }}</p>
+    </div>
+    <div class="col-md-6">
+        <p>Last Name:</p>
+    </div>
+    <div class="col-md-6">
+        <p>{{ request.form.get('last_name') }}</p>
+    </div>
+    <div class="col-md-6">
+        <p>Email Address:</p>
+    </div>
+    <div class="col-md-6">
+        <p>{{ request.form.get('email') }}</p>
+    </div>
+    <div class="col-md-6">
+        <p>Reason for Contact:</p>
+    </div>
+    <div class="col-md-6">
+        <p>{{ request.form.get('reason') }}</p>
+    </div>
+</div>
+
+{% else %}
+{# Form has not been filled out yet: show the form #}
+<form class="m-3" action="{{ url_for('contact') }}" method="post">
+    <div class="mb-3">
+        <label for="first_name" class="form-label">First Name:</label>
+        <input type="text" class="form-control" id="first_name" name="first_name" required>
+    </div>
+    <div class="mb-3">
+        <label for="last_name" class="form-label">Last Name:</label>
+        <input type="text" class="form-control" id="last_name" name="last_name" required>
+    </div>
+    <div class="mb-3">
+        <label for="email" class="form-label">Email Address:</label>
+        <input type="email" class="form-control" id="email" name="email" aria-describedby="email_help" required>
+        <div id="email_help" class="form-text">I'll never share your email with anyone else.</div>
+    </div>
+    <div class="mb-3">
+        <label for="reason" class="form-label">Reason for Contact:</label>
+        <select class="form-select" id="reason" name="reason" required>
+            <option value="">Choose one...</option>
+            <option value="Class question">Class question</option>
+            <option value="Project collaboration">Project collaboration</option>
+            <option value="Internship opportunity">Internship opportunity</option>
+            <option value="Other">Other</option>
+        </select>
+    </div>
+    <button type="submit" class="btn btn-danger mt-3">Submit your message!</button>
+</form>
+{% endif %}
+{% endblock %}
